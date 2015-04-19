@@ -1,0 +1,165 @@
+*
+
+
+html,body{
+	margin:0;
+	padding:0;
+	height:100%;
+	}
+/*DIV PRINCIPAL*/	
+#principal{
+	text-align:left;
+	background-color:#FFF;
+	height:100%;
+	}
+/*DIV ESQUERDA*/
+#divEsquerda{
+	border: 2px solid #000;
+	background-color: #333;
+	float:left;
+	width:300px;
+	height:100%;
+	position:fixed;
+	}
+
+/*CONTEUDO*/
+#divConteudo{
+	float:height;
+	margin: 0px 0px 0px 304px;
+	padding-top:50px;
+	}
+html, body
+	{
+	_height: 100%;
+	_overflow: auto;
+	}
+div {
+	_position: absolute;
+}	
+/*Menu superior*/
+.menu ul li{
+	display:inline;}
+.menu ul li a{
+	color: #FFF; font:18px "Trebuchet MS", Arial, Helvetica, sans-serif; text-decoration:none; padding:13px 15px;}
+.menu li a:hover{ color:#0F0 !important;}		
+/*MENU SUPERIOR*/	
+.divMenu{
+	border: 1px solid #999;
+	float:height;
+	width:100%;
+	height:auto;
+	position:fixed;
+	background-color: #333; 
+	margin: 0px 0px 0px 304px;
+	}
+/*menu esqueda*/
+#menuEsquerda ul{
+	width:300px;
+	height:auto;
+	background-color: #3CB371;
+	display:block;
+	margin:0;
+	padding:0;
+	width:300px;}
+#menuEsquerda li{
+	list-style:none;
+	display:block;
+	width:100%;
+	height:auto;
+	border-bottom:2px solid #fff;
+	color:#fffafa;
+	font-family:helvetica;
+	font-size:18px;
+	padding:5px;
+	text-align::center;
+	}
+#menuEsquerda li:hover{
+	background: #0C0;
+	width:290px;
+	}
+#menuEsquerda li{
+	-webkit-transition:all .9s ease;
+	-moz-transition:all .9s ease;
+	-ms-transition:all .9s ease;
+	transition:all .9s ease;
+	}
+#logo img{
+	padding:15px;
+	border: 0;
+	width: 270px;
+	height:250px;
+	}
+/* formulario*/
+#formularios form{width:300px; display:block; margin:0 auto; background: #A8DBA8; border:none; }
+#formularios fieldset{border:0 ; padding:0 15px 10px 15px; }
+#formularios legend{font:24px Tahoma, Geneva, sans-serif; color: #0B486B; font-weidth:bold; padding:10px 0;}
+#formularios label{display:block; padding:3px 0;}
+#formularios span{display:block; font:16px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#0B486B; font-weight:bold;}
+#formularios input{padding:3px; width:260px; border:1px solid #79BD9A; font:14px Tahoma, Geneva, sans-serif; color: #0B486B; font-weight:bold;}
+#formularios input:hover{border:1px solid  #0CF;}
+#formularios .botao{width:120px; display:block; margin:10px auto; cursor:pointer; background:#0B486B; color:#FFF; border-radius: 4px;}
+#formularios .botao:hover {background: #3B8686;}
+
+<!--MENU COM ABAS-->
+/*GERAL*/
+
+body {
+  background: #222222;
+}
+a:focus {
+  outline: none;
+}
+
+.content {
+  margin: 30px;
+}
+.clearfix:after {
+  content: '.';
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* Abas */
+.tabs-content {
+  background: #eee;
+  font-family: sans-serif;
+}
+
+/* Menu das abas */
+.tabs-menu {
+  background: #79BD9A;
+}
+.tabs-menu ul {
+   list-style: none;
+}
+.tabs-menu ul li {
+  float: left;
+}
+.tabs-menu ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+.tabs-menu ul li a.active-tab-menu {
+  background: #eee;
+  color: #000;
+}
+ 
+/* Conteúdo das abas */
+.tabs {
+  display: none;
+  padding: 30px;
+}
+.first-tab {
+  display: block;
+}
+
+	

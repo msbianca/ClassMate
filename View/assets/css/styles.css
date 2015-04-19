@@ -1,0 +1,327 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+/*
+
+*{
+
+position:relative;
+	padding:0;
+}
+*/
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	background:url('../img/background.jpg') #fefefe;
+	position:relative;
+	
+}
+
+body{
+  
+	padding-top: 100px;
+}
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	color:#54a6de;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+	section, footer, nav{
+	display: block;
+}
+
+#cidade{
+
+	font-size: 20px;
+    size:20px;
+	width: 75%;
+} 
+/*----------------------------
+          Logo login
+-----------------------------*/
+#logo{
+   width:100%;
+ 
+max-width:600px; /* limita o crescimento da imagem até 600px */
+ 
+min-width:100px; /* limita a redução da imagem até 100px – não é necessário */
+ 
+*max-height:400px; /* apenas para IE8 não deformar a imagem ao atingir a largura máxima */
+}
+
+/*----------------------------
+      Cadastro Usuario
+-----------------------------*/
+.col-md-4{
+	padding-left: 20%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.cf:before,
+.cf:after {
+    content: ""; 
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+:focus {
+	outline: 0;
+}
+.loginform {
+	width: 40%;
+	margin: 50px auto;
+	margin-top: 2px;
+	padding: 0;
+	background-color: rgba(215, 221, 217, 0.5);
+	border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(215, 221, 217, 0.5), 
+    			inset 0px 1px 0px 0px rgba(215, 221, 217, 0.5);
+    border: 1px solid rgba(215, 221, 217, 0.5);
+    font-size: 19px;
+    size:19px;
+
+}
+.loginform ul {
+	padding: 0;
+	margin: 0;
+}
+.loginform li {
+	display: inline;
+	float: left;
+}
+.loginform input:not([type=submit]) {
+	width: 70%;
+	padding: 5px;
+	margin-right: 10px;
+	border: 1px solid rgba(215, 221, 217, 0.5);
+	border-radius: 3px;
+	box-shadow: inset 0px 1px 3px 0px rgba(215, 221, 217, 0.1), 
+				0px 1px 0px 0px rgba(250, 250, 250, 0.5) ;
+}
+.loginform input[type=submit] {
+	width: 200px;
+	border: 1px solid rgba(215, 221, 217, 0.5);
+	background: #356070; /* Old browsers */
+	background: -moz-linear-gradient(top,  #356070 0%, #00a2e2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#356070), color-stop(100%,#00a2e2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #356070 0%,#00a2e2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #356070 0%,#00a2e2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #356070 0%,#00a2e2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #356070 0%,#00a2e2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#356070', endColorstr='#00a2e2',GradientType=0 ); /* IE6-9 */
+	color: #fff;
+	padding: 5px 15px;
+	margin-right: 0;
+	margin-top: 15px;
+	border-radius: 3px;
+	text-shadow: 1px 1px 0px rgba(215, 221, 217, 0.5);
+}
+
+/*.loginform input[type=button] {*/
+.loginform .button {
+	width: 200px;
+	border: 1px solid rgba(215, 221, 217, 0.5);
+	background: #860000; /* Old browsers */
+	background: -moz-linear-gradient(top,  #860000 0%, #E20000 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#860000), color-stop(100%,#E20000)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #356070 0%,#00a2e2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #860000 0%,#E20000 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #860000 0%,#E20000 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #860000 0%,#E20000 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#860000', endColorstr='#E20000',GradientType=0 ); /* IE6-9 */
+	color: #fff;
+	padding: 5px 20px;
+	margin-right: 0;
+	margin-top: 15px;
+	border-radius: 3px;
+	text-shadow: 1px 1px 0px rgba(215, 221, 217, 0.5);
+}
+
+button{
+	font-size: 19px;
+	background-color: rgba(19, 156, 0, 0.5);
+	margin: 5px auto;
+}
+
+/*----------------------------
+	The Navigation Menu
+-----------------------------*/
+
+
+#colorNav > ul{
+	width: 450px; /* Increase when adding more menu items */
+	margin:0 auto;
+}
+
+#colorNav > ul > li{ /* will style only the top level li */
+	list-style: none;
+	box-shadow: 0 0 10px rgba(100, 100, 100, 0.5) inset,1px 1px 1px #CCC;
+	display: inline-block;
+	line-height: 1;
+	margin: 1px;
+	border-radius: 3px;
+	position:relative;
+}
+
+#colorNav > ul > li > a{
+	color:inherit;
+	text-decoration:none !important;
+	font-size:24px;
+	padding: 25px;
+}
+
+#colorNav li ul{
+	position:absolute;
+	list-style:none;
+	text-align:center;
+	width:180px;
+	left:50%;
+	margin-left:-90px;
+	top:70px;
+	font:bold 12px 'Open Sans Condensed', sans-serif;
+	
+	/* This is important for the show/hide CSS animation */
+	max-height:0px;
+	overflow:hidden;
+	
+	-webkit-transition:max-height 0.4s linear;
+	-moz-transition:max-height 0.4s linear;
+	transition:max-height 0.4s linear;
+}
+
+#colorNav li ul li{
+	background-color:#313131;
+}
+
+#colorNav li ul li a{
+	padding:12px;
+	color:#fff !important;
+	text-decoration:none !important;
+	display:block;
+}
+
+#colorNav li ul li:nth-child(odd){ /* zebra stripes */
+	background-color:#363636;
+}
+
+#colorNav li ul li:hover{
+	background-color:#444;
+}
+
+#colorNav li ul li:first-child{
+	border-radius:3px 3px 0 0;
+	margin-top:0;
+	position:relative;
+}
+
+#colorNav li ul li:first-child:before{ /* the pointer tip */
+	content:'';
+	position:absolute;
+	width:1px;
+	height:1px;
+	border:5px solid transparent;
+	border-bottom-color:#313131;
+	left:50%;
+	top:-10px;
+	margin-left:-5px;
+}
+
+#colorNav li ul li:last-child{
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+/* This will trigger the CSS */
+/* transition animation on hover */
+
+#colorNav li:hover ul{
+	max-height:200px; /* Increase when adding more dropdown items */
+    padding-top: 20px;
+}
+
+/*----------------------------
+	Color Themes
+-----------------------------*/
+
+
+#colorNav li.green{
+	/* This is the color of the menu item */
+	background-color:#00c08b;
+	
+	/* This is the color of the icon */
+	color:#127a5d;
+}
+
+#colorNav li.red{		background-color:#ea5080;color:#aa2a52;}
+#colorNav li.blue{		background-color:#53bfe2;color:#2884a2;}
+#colorNav li.yellow{	background-color:#f8c54d;color:#ab8426;}
+#colorNav li.purple{	background-color:#df6dc2;color:#9f3c85;}
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px #111111;
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 0 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
