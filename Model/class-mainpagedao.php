@@ -2,8 +2,8 @@
 
 class MainPAgeDao{
     
-    public function getNotficacao($idGrupo){
-        $sql = 'SELECT TOP 3 N.idNotificacao, N.descricao FROM tbnotificacao AS N INNER JOIN tbparticip';
+    public function showNotficacao($idGrupo){
+        $sql = 'SELECT TOP 3 nome,descricao FROM vwnotificacao WHERE idGrupo = ' . $idGrupo;
         $stmt = mysql_query($sql);
         $result = Array();
         while($rs = mysql_fetch_array($stmt)){
@@ -12,8 +12,8 @@ class MainPAgeDao{
         return $result; 
     }
     
-    public function getMensagem($idGrupo){
-        $sql = 'SELECT TOP 3 N.idNotificacao, N.descricao FROM tbnotificacao AS N INNER JOIN tbparticip';
+    public function showMensagem($idGrupo){
+        $sql = 'SELECT TOP 3 nome, descricao FROM vwmensagem WHERE idGrupo = ' . $idGrupo;
         $stmt = mysql_query($sql);
         $result = Array();
         while($rs = mysql_fetch_array($stmt)){
