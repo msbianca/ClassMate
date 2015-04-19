@@ -2,9 +2,9 @@
 
 class MainPAgeDao{
     
-    public function showNotficacao($idGrupo){
-        $sql = 'SELECT TOP 3 nome,descricao FROM vwnotificacao WHERE idGrupo = ' . $idGrupo;
-        $stmt = mysql_query($sql);
+    public function showNotificacao(){
+        $sql = 'SELECT nome,descricao FROM vwnotificacao LIMIT 3';
+        $stmt = mysql_query($sql) or die($sql);
         $result = Array();
         while($rs = mysql_fetch_array($stmt)){
             array_push($result, $rs);
@@ -12,8 +12,8 @@ class MainPAgeDao{
         return $result; 
     }
     
-    public function showMensagem($idGrupo){
-        $sql = 'SELECT TOP 3 nome, descricao FROM vwmensagem WHERE idGrupo = ' . $idGrupo;
+    public function showMensagem(){
+        $sql = 'SELECT nome, descricao FROM vwmensagem LIMIT 3';
         $stmt = mysql_query($sql);
         $result = Array();
         while($rs = mysql_fetch_array($stmt)){

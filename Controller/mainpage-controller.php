@@ -6,8 +6,8 @@ class MainPageController {
 
     private $mainDao;
 
-    public function showNotificacao($idGrupo) {
-        foreach ($this->mainDao->showNotificacao($idGrupo) as $notificacoes) {
+    public function showNotificacao() {
+        foreach ($this->mainDao->showNotificacao() as $notificacoes) {
             echo '<div class="tabs">'.
             '<input type="radio" name="tabs" id="tab3" />'.
             '<label for="tab3">'. $notificacoes['nome'] . '</label>'.
@@ -18,8 +18,8 @@ class MainPageController {
         }
     }
     
-    public function showMensagens($idGrupo) {
-        foreach ($this->mainDao->showMensagem($idGrupo) as $mensagem) {
+    public function showMensagens() {
+        foreach ($this->mainDao->showMensagem() as $mensagem) {
             echo '<div class="mensagem">'.
             $mensagem['descricao'].
             '</div>';

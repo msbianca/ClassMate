@@ -14,17 +14,17 @@
             <?php
             include("master.php");
 
-            require_once '../Controller/mainpge-controller.php';
+            require_once '../Controller/mainpage-controller.php';
 
             $controller = new MainPageController();
             ?>
 
             <div id="divConteudo">
                 <div class="tab-main">
-                    <?= $controller->showNotificacao($_SESSION['grupo']) ?>
+                    <?= $controller->showNotificacao() ?>
                 </div>
                 
-                <?= $controller->showMensagens($_SESSION['grupo']) ?>
+                <?= $controller->showMensagens() ?>
             </div>
 
         </div>
