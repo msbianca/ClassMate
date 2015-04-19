@@ -1,25 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ClassMate</title>
-<link href="assets/estilo.css" rel="stylesheet" type="text/css" media="all" />
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ClassMate</title>
+        <link href="assets/estilo.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="assets/css/tabs.css" rel="stylesheet" type="text/css" media="all" />
+    </head>
 
-<body>
+    <body>
 
-<div id="principal">
+        <div id="principal">
 
-	 <?php 
-              include("master.php");
-      ?>
-    
-      <div id="divConteudo">direita</br>
-      
-       
-    </div>
+            <?php
+            include("master.php");
 
-</div>
+            require_once '../Controller/mainpge-controller.php';
 
-</body>
+            $controller = new MainPageController();
+            ?>
+
+            <div id="divConteudo">
+                <div class="tab-main">
+                    <?= $controller->showNotificacao($_SESSION['grupo']) ?>
+                </div>
+                
+                <?= $controller->showMensagens($_SESSION['grupo']) ?>
+            </div>
+
+        </div>
+
+    </body>
 </html>

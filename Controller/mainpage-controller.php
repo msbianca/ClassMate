@@ -1,8 +1,33 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+require_once '../model/class-mainpagedao.php';
 
+class MainPageController {
+
+    private $mainDao;
+
+    public function showNotificacao($idGrupo) {
+        foreach ($this->mainDao->getNotificacao($idGrupo) as $notificacoes) {
+            echo '<div class="tabs">'.
+            '<input type="radio" name="tabs" id="tab3" />'.
+            '<label for="tab3">'. $notificacoes['nome'] . '</label>'.
+            '<div class="tab-content">'.
+            $notificacoes['descricao'].
+            '</div>'.
+            '</div>';
+        }
+    }
+    
+    public function showMensagens($idGrupo) {
+        foreach ($this->mainDao->getMensagem($idGrupo) as $mensagem) {
+            echo '<div class="mensagem">'.
+            $mensagem['descricao'].
+            '</div>';
+        }
+    }
+
+    public function __construct() {
+        $this->mainDao = new MainPageDao();
+    }
+
+}

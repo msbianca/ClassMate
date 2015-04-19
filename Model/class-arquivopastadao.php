@@ -1,4 +1,6 @@
 <?php
+
+class ArquivosDao{
 	public function inserirArquivo( $idPasta, $idParticipacao, $NomeArquivo, $CaminhodoArquivo){
 		$query = "INSERT INTO tbArquivo VALUES (" .$idPasta. "," .$idParticipacao. "," .$NomeArquivo. "," .$CaminhodoArquivo. ")";
 		mysql_query($query); 
@@ -8,4 +10,5 @@
 		$query = "INSERT INTO tbArquivo VALUES (" .$idParticipacao. "," .$Nome. "," .$Descricao. ")";
 		mysql_query($query);
 	}
+}
 ?>
