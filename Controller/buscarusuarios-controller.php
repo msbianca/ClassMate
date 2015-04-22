@@ -6,13 +6,14 @@ class BuscarUsuariosController {
 
     private $dao;
 
-    public function showUsers() {
-        if (isset($_SESSION['search'])) {
-            foreach ($this->dao->searchUsers($_SESSION['search']) as $usuario) {
-                echo '<a href=../view/perfil.php?id=' . $usuario['idUsuario'] . '<tr>' .
-                '<td>Nome: ' . $usuario['nome'] . '</td>' .
-                '<td>Curso: ' . $usuario['curso'] . '</td>' .
-                '</tr></a>';
+    public function showUsersAluno() {
+        if (isset($_GET['id']) && $_GET['id'] != "") {
+            foreach ($this->dao->searchUserAluno($_GET['id']) as $usuario) {
+                echo '<td>Nome: ' . $usuario['Usuario'] . '</td>' .
+                '<td>Curso: ' . $usuario['Curso'] . '</td>' .
+                
+                '<td><a href=../view/perfil.php?id=' . $usuario['idUsuario'] . '>Visitar Perfil</a> </td>'.
+                '</tr>';
             }
         }
     }

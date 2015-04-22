@@ -9,6 +9,7 @@ class MainPAgeDao{
         while($rs = mysql_fetch_array($stmt)){
             array_push($result, $rs);
         }
+
         return $result; 
     }
     

@@ -7,20 +7,22 @@ class MainPageController {
     private $mainDao;
 
     public function showNotificacao() {
+        $i = 0;
         foreach ($this->mainDao->showNotificacao() as $notificacoes) {
             echo '<div class="tabs">'.
-            '<input type="radio" name="tabs" id="tab3" />'.
-            '<label for="tab3">'. $notificacoes['nome'] . '</label>'.
+            '<input type="radio" name="tabs" id="tab'.$i.'" />'.
+            '<label for="tab'.$i.'">'. $notificacoes['nome'] . '</label>'.
             '<div class="tab-content">'.
             $notificacoes['descricao'].
             '</div>'.
             '</div>';
+            $i++;
         }
     }
     
     public function showMensagens() {
         foreach ($this->mainDao->showMensagem() as $mensagem) {
-            echo '<div class="mensagem">'.
+            echo '  <br/> <div class="mensagem">'.
             $mensagem['descricao'].
             '</div>';
         }

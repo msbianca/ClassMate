@@ -152,14 +152,20 @@ class UsuarioDao {
         return $listagem;
     }
 
-    public function searchUser($criterio) {
-        $sql = "SELECT idUsuario, nome, curso FROM tbUsuarios WHERE nome LIKE '%" . $criterio . "%' OR email LIKE '%" . $criterio . "%'";
-        $stmt = mysql_query($sql);
+    public function searchUserAluno($criterio) {
+        $sql = "SELECT Distinct U.idUsuario, U.nome as 'Usuario', C.nome as 'Curso' FROM tbUsuario AS U INNER JOIN tbAluno as A on U.idusuario = A.idUsuario INNER JOIN tbCurso as C on A.idCurso = C.idCurso INNER JOIN  tbLogin as L on U.idUsuario = L.idUsuario WHERE L.idUsuario = A.idUsuario  AND U.nome LIKE '%" . $criterio . "%' OR L.email LIKE '%" . $criterio . "%'";
+        $stmt = mysql_query($sql) or die($sql);
                 $result = Array();
         while($rs = mysql_fetch_array($stmt)){
             array_push($result, $rs);
         }
         return $result;
+    }
+
+    public function getProfileAluno($id){
+        $sql = "SELECT U.nome as 'Usuario', C.nome as 'Curso', A.AnoMes, L.email FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbAluno AS A on A.idUsuario = U.idUsuario INNER JOIN tbCurso AS C on C.idCurso = A.idCurso WHERE U.idUsuario=". $idUsuario; 
+        $stmt = mysql_query($sql);
+        return mysql_result($stmt, 0);
     }
 
 }

@@ -8,7 +8,7 @@
     </head>
 
     <body>
-
+    
         <div id="principal">
 
             <?php
@@ -18,15 +18,18 @@
 
             $controller = new BuscarUsuariosController();
             ?>
-
+         <center>
             <div id="divConteudo">
                 <form method="GET" action="../View/buscarusuarios.php">
                     <input type="text" name="id" />
                     <input type="submit" value="Buscar" />
                 </form>
+                <table>
+                <?= $controller->showUsersAluno() ?>
+                    </table>
                 
-                <?= $controller->showUsers() ?>
             </div>
+        </center>
 
         </div>
 

@@ -8,26 +8,24 @@
     </head>
 
     <body>
-
+    
         <div id="principal">
 
             <?php
             include("master.php");
-
-            require_once '../Controller/mainpage-controller.php';
-
-            $controller = new MainPageController();
             ?>
-
+         <center>
             <div id="divConteudo">
-                <div class="tab-main">
-                    <?= $controller->showNotificacao() ?>
-                </div>
+                <?php
+                    require_once '../Controller/perfil-controller.php';
+                   $controller = new montarPerfilUsuario($_GET['id']); 
+                 ?>
                 
-             <?= $controller->showMensagens() ?>
             </div>
+        </center>
 
         </div>
 
     </body>
 </html>
+
