@@ -8,21 +8,22 @@
     </head>
 
     <body>
-    
+
         <div id="principal">
 
             <?php
             include("master.php");
             ?>
-         <center>
-            <div id="divConteudo">
-                <?php
+            <center>
+                <div id="divConteudo">
+                    <?php
                     require_once '../Controller/perfil-controller.php';
-                   $controller = new montarPerfilUsuario($_GET['id']); 
-                 ?>
-                
-            </div>
-        </center>
+                    $controller = new PerfilController();
+                    $controller->montarPerfilUsuario($_GET['id']);
+                    ?>
+
+                </div>
+            </center>
 
         </div>
 
