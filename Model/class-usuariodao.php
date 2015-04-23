@@ -163,9 +163,13 @@ class UsuarioDao {
     }
 
     public function getProfileAluno($id){
-        $sql = "SELECT U.nome as 'Usuario', C.nome as 'Curso', A.AnoMes, L.email FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbAluno AS A on A.idUsuario = U.idUsuario INNER JOIN tbCurso AS C on C.idCurso = A.idCurso WHERE U.idUsuario=". $idUsuario; 
+        $sql = "SELECT U.nome as 'Usuario', C.nome as 'Curso', A.AnoMes, L.email FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbAluno AS A on A.idUsuario = U.idUsuario INNER JOIN tbCurso AS C on C.idCurso = A.idCurso WHERE U.idUsuario=". $id; 
         $stmt = mysql_query($sql);
-        return mysql_result($stmt, 0);
+        $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+        return $result;
     }
 
 }

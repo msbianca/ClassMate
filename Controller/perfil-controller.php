@@ -14,8 +14,9 @@ public function montarPerfilUsuario($id){
 	
 	$usuariodao = new UsuarioDao();
 	$infos = $usuariodao->getProfileAluno($id);
+	//print_r($infos);
 	//$infos = $this->dao->getProfileAluno($id);
-	echo '<table><tr><td>'. $infos['nome'] .'</td></tr><tr><td>'. $infos['curso'] . '</td><td>e-mail: '. $infos['email'] . '</td></tr></table>';
+	echo '<table><tr><td>'. $infos[0]['Usuario'] .'</td></tr><tr><td>'. $infos[0]['Curso'] . '</td><td>e-mail: '. $infos[0]['email'] . '</td></tr></table>';
 	//echo '<td>' . $infos['semestre']. ' Semestre</td>'.
 	
 }
