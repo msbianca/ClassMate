@@ -57,7 +57,7 @@
                 <li> <a href="principal.php">Home</a> </li>
                 <li> <a href="#">Perfil</a> </li>
                 <li> <a href="buscarusuarios.php">Alunos</a> </li>
-                <li> <a href="professores.html">Professores</a> </li>
+                <li> <a href="buscarusuariosProfessor.php">Professores</a> </li>
                 <li><a href="arquivos.html">Arquivos</a></li>
                 <li> <a href="atualizacoes.html">Atualizações</a> </li>
                 <li> <a href="comunicado.html">Comunicado</a> </li>

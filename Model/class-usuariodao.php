@@ -162,8 +162,29 @@ class UsuarioDao {
         return $result;
     }
 
-    public function getProfileAluno($id){
-        $sql = "SELECT U.nome as 'Usuario', C.nome as 'Curso', A.AnoMes, L.email FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbAluno AS A on A.idUsuario = U.idUsuario INNER JOIN tbCurso AS C on C.idCurso = A.idCurso WHERE U.idUsuario=". $id; 
+    public function getProfileAluno($idUsuario){
+        $sql = "SELECT U.nome as 'Usuario', C.nome as 'Curso', (TIMESTAMPDIFF(MoNTH,A.AnoMes,NOW()) / 6)  AS Semestre, L.email FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbAluno AS A on A.idUsuario = U.idUsuario INNER JOIN tbCurso AS C on C.idCurso = A.idCurso WHERE  U.idUsuario= ". $idUsuario; 
+        //$sql = "SELECT U.nome as 'Usuario', C.nome as 'Curso', (TIMESTAMPDIFF(MoNTH,A.AnoMes,NOW()) / 6)  AS Semestre, L.email, U.fotoperfil FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbAluno AS A on A.idUsuario = U.idUsuario INNER JOIN tbCurso AS C on C.idCurso = A.idCurso WHERE  U.idUsuario= ". $id; 
+        $stmt = mysql_query($sql);
+        $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+        return $result;
+    }
+
+    public function searchUserProfessor($criterio) {
+        $sql = "SELECT U.nome as 'Usuario', L.email, D.nome AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON  TC.idTipoCargo =  CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina  WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND  GC.idGrupo = DG.idGrupo AND U.nome LIKE '%" . $criterio . "%' OR L.email LIKE '%" . $criterio . "%'";
+        $stmt = mysql_query($sql) or die($sql);
+                $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+        return $result;
+    }
+
+     public function getProfileProfessor($idUsuario){
+        $sql = "SELECT U.idUsuario AS idUsuario, U.nome AS 'Usuario', L.email, P.registro, TC.tipocargo, G.nome AS Grupo, D.nome AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON  TC.idTipoCargo =  CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina  WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND  GC.idGrupo = DG.idGrupo AND  U.idUsuario =". $idUsuario; 
         $stmt = mysql_query($sql);
         $result = Array();
         while($rs = mysql_fetch_array($stmt)){

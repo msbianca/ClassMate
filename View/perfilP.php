@@ -19,7 +19,7 @@
                     <?php
                     require_once '../Controller/perfil-controller.php';
                     $controller = new PerfilController();
-                    $controller->montarPerfilAluno($_GET['id']);
+                    $controller->montarPerfilProfessor($_GET['id']);
                     ?>
 
                 </div>
