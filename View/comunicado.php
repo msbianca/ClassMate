@@ -8,28 +8,22 @@
     </head>
 
     <body>
-    
+
         <div id="principal">
 
             <?php
             include("master.php");
-
-            require_once '../Controller/buscarusuarios-controller.php';
-
-            $controller = new BuscarUsuariosController();
             ?>
-         <center>
-            <div id="divConteudo">
-                <form method="GET" action="../View/buscarusuarios.php">
-                    <input type="text" name="id" />
-                    <input type="submit" value="Buscar" />
-                </form>
-                <table>
-                <?= $controller->showUsersAluno() ?>
-                    </table>
-                
-            </div>
-        </center>
+            <center>
+                <div id="divConteudo">
+                    <?php
+        
+                    echo 'EM CONSTRUÇÃO';
+                 
+                    ?>
+
+                </div>
+            </center>
 
         </div>
 

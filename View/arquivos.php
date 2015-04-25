@@ -17,9 +17,7 @@
             <center>
                 <div id="divConteudo">
                     <?php
-                    require_once '../Controller/perfil-controller.php';
-                    $controller = new PerfilController();
-                    $controller->montarPerfil($_GET['id'],'Professor');
+                      echo 'EM CONSTRUÇÃO';
                     ?>
 
                 </div>

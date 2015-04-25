@@ -12,7 +12,7 @@ class BuscarUsuariosController {
                 echo '<td>Nome: ' . $usuario['Usuario'] . '</td>' .
                 '<td>Curso: ' . $usuario['Curso'] . '</td>' .
                 
-                '<td><a href=../view/perfil.php?id=' . $usuario['idUsuario'] . '>Visitar Perfil</a> </td>'.
+                '<td><a href=../view/perfilA.php?id=' . $usuario['idUsuario'] . '>Visitar Perfil</a> </td>'.
                 '</tr>';
             }
         }

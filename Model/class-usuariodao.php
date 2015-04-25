@@ -174,7 +174,7 @@ class UsuarioDao {
     }
 
     public function searchUserProfessor($criterio) {
-        $sql = "SELECT U.nome as 'Usuario', L.email, D.nome AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON  TC.idTipoCargo =  CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina  WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND  GC.idGrupo = DG.idGrupo AND U.nome LIKE '%" . $criterio . "%' OR L.email LIKE '%" . $criterio . "%'";
+        $sql = "SELECT U.idUsuario AS idUsuario, U.nome as 'Usuario', L.email, D.nome AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON  TC.idTipoCargo =  CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina  WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND  GC.idGrupo = DG.idGrupo AND U.nome LIKE '%" . $criterio . "%' OR L.email LIKE '%" . $criterio . "%'";
         $stmt = mysql_query($sql) or die($sql);
                 $result = Array();
         while($rs = mysql_fetch_array($stmt)){
@@ -184,7 +184,16 @@ class UsuarioDao {
     }
 
      public function getProfileProfessor($idUsuario){
-        $sql = "SELECT U.idUsuario AS idUsuario, U.nome AS 'Usuario', L.email, P.registro, TC.tipocargo, G.nome AS Grupo, D.nome AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON  TC.idTipoCargo =  CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina  WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND  GC.idGrupo = DG.idGrupo AND  U.idUsuario =". $idUsuario; 
+        $sql = "SELECT  U.nome AS 'Usuario', L.email, P.registro FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario  WHERE U.idUsuario =". $idUsuario; 
+        $stmt = mysql_query($sql);
+        $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+           return $result;
+    }
+     public function getProfessorDisciplina($idUsuario){
+        $sql = "SELECT D.nome AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON TC.idTipoCargo = CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND GC.idGrupo = DG.idGrupo AND U.idUsuario =". $idUsuario; 
         $stmt = mysql_query($sql);
         $result = Array();
         while($rs = mysql_fetch_array($stmt)){
@@ -192,6 +201,42 @@ class UsuarioDao {
         }
         return $result;
     }
+
+     public function getContProfessorDisciplina($idUsuario){
+        $sql = "SELECT COUNT(D.nome) AS Disciplina FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON TC.idTipoCargo = CA.idTipoCargo INNER JOIN tbGrupoCargo AS GC ON GC.idCargo = CA.idCargo INNER JOIN tbGrupo AS G ON G.idGrupo = GC.idGrupo INNER JOIN tbDisciplinaGrupo AS DG ON DG.idGrupo = G.idGrupo INNER JOIN tbdisciplina AS D ON D.idDisciplina = DG.idDisciplina WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND GC.idGrupo = DG.idGrupo AND U.idUsuario =". $idUsuario; 
+        $stmt = mysql_query($sql);
+        $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+        return $result;
+    }
+
+         public function getProfessorCargo($idUsuario){
+        $sql = "SELECT TC.tipocargo FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON TC.idTipoCargo = CA.idTipoCargo WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND U.idUsuario = ". $idUsuario; 
+        $stmt = mysql_query($sql);
+        $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+        return $result;
+    }
+
+        public function getContProfessorCargo($idUsuario){
+        $sql = "SELECT COUNT(TC.tipocargo) AS Cargo FROM tbUsuario AS U INNER JOIN tblogin As L on L.idUsuario = U.idUsuario INNER JOIN tbProfessor AS P on P.idUsuario = U.idUsuario INNER JOIN tbCargo AS CA ON CA.idUsuario = U.idUsuario INNER JOIN tbTipoCargo AS TC ON TC.idTipoCargo = CA.idTipoCargo WHERE P.idUsuario = CA.idUsuario AND L.idUsuario = CA.idUsuario AND U.idUsuario = ". $idUsuario; 
+        $stmt = mysql_query($sql);
+        $result = Array();
+        while($rs = mysql_fetch_array($stmt)){
+            array_push($result, $rs);
+        }
+        return $result;
+    }
+
+ //     public function usuarioTipo()
+ //       $query = "SELECT L.idUsuario FROM tbUsuario as U, tbLogin as L WHERE U.idUsuario = L.idUsuario AND L.usuarioco = '$login' OR L.email = '$login'";
+ //       $result = mysql_query($query);
+ //       return mysql_result($result, 0);
+// }
 
 }
 

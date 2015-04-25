@@ -55,12 +55,14 @@
             
     <ul>
                 <li> <a href="principal.php">Home</a> </li>
-                <li> <a href="#">Perfil</a> </li>
-                <li> <a href="buscarusuarios.php">Alunos</a> </li>
+                <li> <a href="perfil.php">Perfil</a> </li>
+                <li> <a href="buscarusuariosAlunos.php">Alunos</a> </li>
                 <li> <a href="buscarusuariosProfessor.php">Professores</a> </li>
-                <li><a href="arquivos.html">Arquivos</a></li>
-                <li> <a href="atualizacoes.html">Atualizações</a> </li>
-                <li> <a href="comunicado.html">Comunicado</a> </li>
+                <li><a href="arquivos.php">Arquivos</a></li>
+                <li> <a href="">Atualizações</a> 
+                      <!--  <?//php  echo'teste'; ?>  -->
+                </li>
+                <li> <a href="comunicado.php">Comunicado</a> </li>
                 <li> <a href="cofiguracao.php">Configuração</a> </li>
                 <li> <a href="#">Sair</a> </li>
             </ul>

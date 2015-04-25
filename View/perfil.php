@@ -17,9 +17,11 @@
             <center>
                 <div id="divConteudo">
                     <?php
-                    require_once '../Controller/perfil-controller.php';
-                    $controller = new PerfilController();
-                    $controller->montarPerfilAluno($_GET['id']);
+                    //require_once '../Controller/perfil-controller.php';
+                    //$controller = new PerfilController();
+                    echo 'EM CONSTRUÇÃO';
+                   // $Tipo = $controller->usuarioTipo();
+                   // $controller->montarPerfilAluno($_GET['idUsuario'],$Tipo);
                     ?>
 
                 </div>

@@ -8,22 +8,28 @@
     </head>
 
     <body>
-
+    
         <div id="principal">
 
             <?php
             include("master.php");
-            ?>
-            <center>
-                <div id="divConteudo">
-                    <?php
-                    require_once '../Controller/perfil-controller.php';
-                    $controller = new PerfilController();
-                    $controller->montarPerfil($_GET['id'],'Professor');
-                    ?>
 
-                </div>
-            </center>
+            require_once '../Controller/buscarusuarios-controller.php';
+
+            $controller = new BuscarUsuariosController();
+            ?>
+         <center>
+            <div id="divConteudo">
+                <form method="GET" action="../View/buscarusuariosAlunos.php">
+                    <input type="text" name="id" />
+                    <input type="submit" value="Buscar" />
+                </form>
+                <table>
+                <?= $controller->showUsersAluno() ?>
+                    </table>
+                
+            </div>
+        </center>
 
         </div>
 
