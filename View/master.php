@@ -58,10 +58,8 @@
                 <li> <a href="perfil.php">Perfil</a> </li>
                 <li> <a href="buscarusuariosAlunos.php">Alunos</a> </li>
                 <li> <a href="buscarusuariosProfessor.php">Professores</a> </li>
-                <li><a href="arquivos.php">Arquivos</a></li>
-                <li> <a href="">Atualizações</a> 
-                      <!--  <?//php  echo'teste'; ?>  -->
-                </li>
+                <li><a href="arquivo.php">Arquivos</a></li>
+                <li> <a href="">Atualizações</a> </li> 
                 <li> <a href="comunicado.php">Comunicado</a> </li>
                 <li> <a href="cofiguracao.php">Configuração</a> </li>
                 <li> <a href="#">Sair</a> </li>
