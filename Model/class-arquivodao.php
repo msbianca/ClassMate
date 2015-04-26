@@ -9,25 +9,25 @@
 	}
 
 	public function alterarArquivo($idArquivo, $idPasta, $idParticipacao,$nome, $descricao, $caminho){
-		$query = "UPDATE tbArquivo SET idPasta = $idPasta AND idParticipacao = $idParticipacao AND nome = $nome AND descricao = $descricao AND  caminhoArquivo = $caminho)  WHERE idArquivo = $idArquivo");
+		$query = "UPDATE tbArquivo SET idPasta = $idPasta AND idParticipacao = $idParticipacao AND nome = $nome AND descricao = $descricao AND  caminhoArquivo = $caminho  WHERE idArquivo = $idArquivo";
 		
 				mysql_query($query);
 			
 		}
 
 	public function removerArquivo($idArquivo){
-		$query = "DELETE  FROM tbArquivo WHERE idArquivo = $idArquivo");
+		$query = "DELETE  FROM tbArquivo WHERE idArquivo = $idArquivo";
 		mysql_query($query);
 		
 		}
 
 	public function listarTodosArquivos($idParticipacao){
-		$query = "SELECT * FROM tbArquivo WHERE idParticipacao = $idParticipacao");
+		$query = "SELECT * FROM tbArquivo WHERE idParticipacao = $idParticipacao";
 		mysql_query($query);
 		
 	}
 	public function listarArquivos($idArquivo){
-		$query = "SELECT * FROM tbArquivo WHERE idArquivo = $idArquivo");
+		$query = "SELECT * FROM tbArquivo WHERE idArquivo = $idArquivo";
 		mysql_query($query);
 		
 	}

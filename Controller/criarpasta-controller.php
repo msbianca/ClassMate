@@ -1,19 +1,21 @@
 <?php
 
-require '..\Model\class-pastadao.php';
-require '..\model\class-dao.php';
+//require '..\Model\class-pastadao.php';
+//require '..\model\class-dao.php';
 
 $dir = $_POST['nome'];
 
-$dao = new DAO();
-$dao->abrirBD();
+//$dao = new DAO();
+//$dao->abrirBD();
 
-$pastasdao = new PastasDao();
-$pastasdao->inserirPasta($nome, $proprietario);
+//$pastasdao = new PastasDao();
+//$pastasdao->inserirPasta($nome, $proprietario);
 
-mkdir('../arquivos/' . $_SESSION['idUsuario']. '/' . $dir . '/');
+session_start();
+$diretorio = '../arquivos/' . $_SESSION['login']. '/' . $dir . '/';
+mkdir($diretorio,0777,true);
 
 
-header('location: ../view/criarPasta.php');
+//header('location: ../view/criarPasta.php');
 
 

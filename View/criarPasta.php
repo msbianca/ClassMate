@@ -16,7 +16,7 @@
             ?>
             <center>
                 <div id="divConteudo">
-                            <form enctype="multipart/form-data" action="..\controller\upload-controller.php" method=POST>
+                            <form enctype="multipart/form-data" action="..\controller\criarpasta-controller.php" method=POST>
                     <table>
                         <tr>
                             <td><h2><b>Insira sua pasta</b></h2></td>
