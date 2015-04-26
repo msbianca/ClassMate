@@ -71,7 +71,7 @@ div {
 	font-family:helvetica;
 	font-size:18px;
 	padding:5px;
-	text-align::center;
+	text-align:center;
 	}
 #menuEsquerda li:hover{
 	background: #0C0;

@@ -65,7 +65,7 @@ div {
 	font-family:helvetica;
 	font-size:18px;
 	padding:18px;
-	text-align::center;
+	text-align:center;
 	}
 #menuEsquerda li:hover{
 	background: #F60;

@@ -24,8 +24,7 @@
 	$arquivoDao->inserirArquivo($user);
 	
 	
-	header('location: ..\View\arquivo.php');
-?>
+	header('location: ..\View\uploadarquivos.php');
 	
 	
 	
