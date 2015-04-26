@@ -3,7 +3,7 @@
 session_start();
 
 $user = $_SESSION['login'];
-if (is_set($_SESSION['filepath']))
+if (isset($_SESSION['filepath']))
     $caminho = $_SESSION['filepath'];
 else
     $caminho = "";
