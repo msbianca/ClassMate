@@ -16,9 +16,36 @@
             ?>
             <center>
                 <div id="divConteudo">
-                    <?php
-                      echo 'EM CONSTRUÇÃO';
-                    ?>
+                            <form enctype="multipart/form-data" action="..\controller\upload-controller.php" method=POST>
+                    <table>
+                        <tr>
+                            <td><h2><b>Insira seu arquivo</b></h2></td>
+                        </tr>
+                        <tr>
+                            <td>Nome:</td>
+                            <td><input type=text name=nome></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Arquivo:
+                            </td>
+                            <td>
+                                <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+                                <input name="userfile" type="file">
+                            </td>
+                        <tr>
+                            <td>
+                                <input type=submit value="Enviar Arquivo">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>    
+                    </table>
+                </form>
 
                 </div>
             </center>
@@ -27,4 +54,3 @@
 
     </body>
 </html>
-

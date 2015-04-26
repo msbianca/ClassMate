@@ -55,21 +55,6 @@
 			return $this->caminhoArquivo;
 		}
 		
-		public function efetuarUpload($arquivo){
-			$uploaddir = '..\resources\arquivo\\';
-			$uploadfile = $uploaddir . $arquivo->getidArquivo();
-			try {
-				if($_FILES['userfile']['type'] == 'application/pdf'){
-					move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
-					$arquivoDao = new ArquivoDao();
-					$arquivoDao->inserirArquivo($arquivo);
-				}else{
-					header('location: ..\view\formatoInvalido.php');
-				}
-			}catch(exception $e){
-				header('location: ..\view\erro.php');
-			}
-		}
-		
-		
+	
+	
 	}

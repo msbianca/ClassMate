@@ -2,24 +2,29 @@
 
 	session_start();
 
-	$grau = $_POST['idPasta'];
-	$tema = $_POST['idParticipacao'];
-	$titulo = $_POST['nome'];
-	$autor = $_SESSION['descricao'];
+	$user = $_SESSION['login'];
 
-	require '..\model\class-arquivo.php';
-	require '..\model\class-arquivodao.php';
+	require '..\Model\class-arquivodao.php';
 	require '..\model\class-dao.php';
+
+	efetuarUpload($user);
 	
 	$dao = new DAO();
 	$dao->abrirBD();
 	
 	$arquivoDao = new ArquivoDao();
-	$arquivo->setIdPasta($idPasta);
-	$arquivo->setIdParticipacao($idParticipacao);
-	$arquivo->setNome($nome);
-	$arquivo->setDescricao($descricao);
+	
+	function efetuarUpload($idArquivo){
+			$uploaddir = '..\arquivos\\';
+			$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+			move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+		}
 
+
+	$arquivoDao->inserirArquivo($user);
+	
+	
+	header('location: ..\View\arquivo.php');
 ?>
 	
 	
