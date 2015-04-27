@@ -14,18 +14,40 @@
             <?php
             include("master.php");
 
-            require_once '../Controller/buscarusuarios-controller.php';
-
-            $controller = new BuscarUsuariosController();
+            require_once '../Controller/montararquivos-controller.php';
+                        require_once '../model/class-arquivodao.php';
+            require_once '../model/class-pastadao.php';
             ?>
          <center>
             <div id="divConteudo">
-                <form method="GET" action="../View/buscarusuariosAlunos.php">
-                    <input type="text" name="id" />
+                <a href='../view/uploadarquivos.php'>Adicionar Arquivo</a>
+                <a href='../view/criarPasta.php'>Adicionar Pasta</a>
+                <form method="GET" action="arquivo.php">
+                    <input type="text" name="nome" />
                     <input type="submit" value="Buscar" />
                 </form>
+                <?php
+                if(isset($_GET['nome'])){
+                    $adao = new ArquivoDao();
+                    echo '<table>';
+                    foreach ($adao->buscarArquivo($_SESSION['login'], $_GET['nome']) as $arquivo) {
+                        echo '<tr> <td>' . $arquivos['nome'] . '</td><td>' . $arquivos['descricao'] . '</td><td><a href="../listarArquivos.php?idArquivo='.$arquivos['idArquivo'].' </td></tr>';
+                    }
+                    echo '</table>';
+                    $pdao = new PastaDao();
+                    echo '<table>';
+                    foreach ($pdao->buscarPasta($_SESSION['login'], $_GET['nome']) as $pasta) {
+                        echo '<tr> <td>' . $pasta['nome'] . '</td><td>' . $pasta['descricao'] . '</td><td><a href="../view/listarPastas.php?idpasta='.$pasta['idpasta'].' </td></tr>';
+                    }
+                    echo '</table>';
+
+
+                }
+
+?>
                 <table>
-                <?= $controller->showUsersAluno() ?>
+
+                
                     </table>
                 
             </div>
