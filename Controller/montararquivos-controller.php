@@ -7,7 +7,7 @@
 	require_once '..\model\class-pastadao.php';
 	require_once '..\model\class-usuariodao.php';
 	require_once '..\model\class-dao.php';
-
+	
 
 	$dao = new Dao();
 	$dao->abrirBD();
