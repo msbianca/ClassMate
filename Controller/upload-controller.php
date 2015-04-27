@@ -27,7 +27,7 @@ function efetuarUpload($uploaddir) {
     move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 }
 
-$arquivoDao->inserirArquivo($user);
+$arquivoDao->inserirArquivo($_SESSION['idPasta'], $_SESSION['idParticipacao'], $_POST['nome'], $_POST['descricao'], $_SESSION['caminho']);
 
 
 header('location: ..\View\uploadarquivos.php');
