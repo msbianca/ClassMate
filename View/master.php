@@ -62,7 +62,7 @@
                 <li> <a href="">Atualizações</a> </li> 
                 <li> <a href="comunicado.php">Comunicado</a> </li>
                 <li> <a href="cofiguracao.php">Configuração</a> </li>
-                <li> <a href="#">Sair</a> </li>
+                <li> <a href="..\controller\logoff-controller.php">Sair</a> </li>
             </ul>
             
         </div>
