@@ -21,8 +21,8 @@
 		
 		}
 
-	public function listarTodosArquivos($idUsuario){
-		$query = "SELECT A.* FROM tbArquivo AS A INNER JOIN tbParticipacao AS P ON P.idParticipacao = A.idParticipacao INNER JOIN tbUsuario AS U ON U.idUsuario = P.idUsuario";
+	public function listarTodosArquivos($idUsuario, $idPasta){
+		$query = "SELECT A.* FROM tbArquivo AS A INNER JOIN tbParticipacao AS P ON P.idParticipacao = A.idParticipacao INNER JOIN tbUsuario AS U ON U.idUsuario = P.idUsuario AND U.idUsuario = $idUsuario AND A.idPasta = $idPasta";
 		$stmt = mysql_query($query);
 		$result  = array();
 		if(mysql_affected_rows() > 0 ){

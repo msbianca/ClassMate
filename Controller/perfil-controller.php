@@ -56,17 +56,20 @@ public function montarPerfilProfessor($id){
 	echo '</td></tr></table>';
 }*/
 
-public function montarPerfil($id, $Tipo){
+public function montarPerfil($idUsuario, $Tipo){
 	$dao = new Dao();
 	$dao->abrirBD();
 	$usuariodao = new UsuarioDao();
 	
+	$Tipo = $usuariodao->usuarioTipo($idUsuario);
+
+
 	if($Tipo == 'Professor')
 	{    
-		$infos = $usuariodao->getProfileProfessor($id);
+		$infos = $usuariodao->getProfileProfessor($idUsuario);
 		echo '<table><tr><td>'. $infos[0]['Usuario'] .'</td></tr><tr><td> Registro: '. $infos[0]['registro'] . '</td></tr><tr><td>E-mail: '. $infos[0]['email'] . '</td></tr>';
-		$infos1 = $usuariodao->getProfessorCargo($id);
-		$cont = $usuariodao->getContProfessorCargo($id);
+		$infos1 = $usuariodao->getProfessorCargo($idUsuario);
+		$cont = $usuariodao->getContProfessorCargo($idUsuario);
 		$cont = $cont[0]['Cargo'];
 		echo '<tr><td>Cargo:';
 		$i = 0;
@@ -76,8 +79,8 @@ public function montarPerfil($id, $Tipo){
 		 } while ( $i < $cont);
 		 echo '</td></tr>';
 
-		$infos2 = $usuariodao->getProfessorDisciplina($id);
-		$cont1 = $usuariodao->getContProfessorDisciplina($id);
+		$infos2 = $usuariodao->getProfessorDisciplina($idUsuario);
+		$cont1 = $usuariodao->getContProfessorDisciplina($idUsuario);
 		$cont1 = $cont1[0]['Disciplina'];
 		echo '<tr><td>Disciplina:';
 		$i = 0;
@@ -90,7 +93,7 @@ public function montarPerfil($id, $Tipo){
 	}
 	elseif ($Tipo == 'Aluno') {
 		
-		$infos = $usuariodao->getProfileAluno($id);
+		$infos = $usuariodao->getProfileAluno($idUsuario);
 		$semestre = ($infos[0]['Semestre']);
 		$X = $semestre - (int)$semestre;
 		if($X >= 0.3) $semestre = ($semestre - $X) + 1;

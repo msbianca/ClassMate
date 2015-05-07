@@ -17,11 +17,14 @@
             <center>
                 <div id="divConteudo">
                     <?php
-                    //require_once '../Controller/perfil-controller.php';
-                    //$controller = new PerfilController();
+                    require_once '../Controller/perfil-controller.php';
+                    require_once '../model/class-usuariodao.php';
+                    $controller = new PerfilController();
+                    $usuariodao = new UsuarioDao();
                     echo 'EM CONSTRUÇÃO';
-                   // $Tipo = $controller->usuarioTipo();
-                   // $controller->montarPerfilAluno($_GET['idUsuario'],$Tipo);
+                    $idUsuario = (isset($_GET['idUsuario'])) ? $_GET['idUsuario'] : $_SESSION['login'];
+                    $Tipo = $usuariodao->usuarioTipo($idUsuario);
+                    $controller->montarPerfil($idUsuario,$Tipo);
                     ?>
 
                 </div>

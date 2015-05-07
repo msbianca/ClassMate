@@ -7,7 +7,10 @@ class UsuarioDao {
     public function loginViraId($login) {
         $query = "SELECT L.idUsuario FROM tbUsuario as U, tbLogin as L WHERE U.idUsuario = L.idUsuario AND L.usuarioco = '$login' OR L.email = '$login'";
         $result = mysql_query($query);
-        return mysql_result($result, 0);
+        if(mysql_num_rows($result) > 0)
+            return mysql_result($result, 0);
+        else
+            return 0;
     }
 
     public function habilitarUsuario($idUsuario) {
@@ -232,11 +235,11 @@ class UsuarioDao {
         return $result;
     }
 
- //     public function usuarioTipo()
- //       $query = "SELECT L.idUsuario FROM tbUsuario as U, tbLogin as L WHERE U.idUsuario = L.idUsuario AND L.usuarioco = '$login' OR L.email = '$login'";
- //       $result = mysql_query($query);
- //       return mysql_result($result, 0);
-// }
+     public function usuarioTipo($idUsuario){
+       $query = "SELECT TC.tipoCargo FROM tbUsuario AS U, tbtipocargo AS TC WHERE TC.idTipoCargo = U.idTipoCargo AND U.idUsuario = ". $idUsuario;
+       $result = mysql_query($query);
+       return mysql_result($result, 0);
+     }
 
 }
 

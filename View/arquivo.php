@@ -19,7 +19,7 @@
             require_once '../model/class-pastadao.php';
             ?>
          <center>
-            <div id="divConteudo">
+            <div id="divConteudo"  style='margin:0 auto '>
                 <a href='../view/uploadarquivos.php'>Adicionar Arquivo</a>
                 <a href='../view/criarPasta.php'>Adicionar Pasta</a>
                 <form method="GET" action="arquivo.php">
@@ -41,15 +41,9 @@
                     }
                     echo '</table>';
 
-
                 }
 
-?>
-                <table>
-
-                
-                    </table>
-                
+            ?>
             </div>
         </center>
 
