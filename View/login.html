@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
-    <meta charset="utf-8">
+    
     <meta charset="utf-8" />
         <title>Classmate - FATEC JD</title>
+        
+         <!-- MEU CSS -->
+         <link rel="stylesheet" href="../View/assets/css/estilo.css" />
+        
 
         <!--Our CSS stylesheet file -->
-        <link rel="stylesheet" href="View/assets/css/styles.css" />
+        <!--<link rel="stylesheet" href="View/assets/css/styles.css" />
 
 		<!-- Font Awesome Stylesheet -->
-		<link rel="stylesheet" href="View/assets/font-awesome/css/font-awesome.css" />
+		<!--<link rel="stylesheet" href="View/assets/font-awesome/css/font-awesome.css" />
 
 		<!-- Including Open Sans Condensed from Google Fonts -->
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" />
+		<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" />
 
 		<!-- Bootstrap 
     	<link href="..\bootstrap\css\bootstrap.min.css" rel="stylesheet">
-    	-->
+    	-->    
 	
   </head>
    <body>
     <!--Logo-->
     	<center>
-    	<div id="logo" >
-    		 <img id="logo" src="..\view\assets\img\teste2.png" style=" width: 450px; position:relative; ">
-    	</div>
-    </center>
+            <div id="logo" >
+                     <img id="logo" src="..\view\assets\img\teste2.png" style=" width: 450px; height:200px; position:relative; ">
+            </div>
+   	</center>
+    
+   <!-- FORM ANTIGO
               
 	<div class="row">
 		
@@ -61,10 +67,42 @@
 		<div class="vol-md-4">
 		</div>
 	
-	</div>	
-			
+	</div>
+    
+    FIM FORM ANTIGO -->	
+        
+        
+        <!-- NOVO FORM DE LOGIN -->
+ 	<div id="box">
+        <div id="formularios">
+    
+            <!-- formulario de cadastro!-->
+            <form name="login" method="post" action="../controller/login-controller.php" > 
+                <fieldset>
+                
+                    <legend align="center">Login</legend>
+                     
+                    <label>
+                        <span>RA:</span>
+                        <input type="text" name="ra" id="ra" />
+                    </label>
+                    
+                    <label>
+                        <span>Senha:</span>
+                        <input type="password" name="senha" id="senha" />
+                    </label>
+                    
+                    <input type="submit" name="logar" valor="logar" value="Logar" class="botao" />
+                    
+                    
+                </fieldset>
+            </form>
+        
+        </div><!--cadastro-->
+    </div><!-- box-->
+    
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed 
     <script src="..\bootstrap\js\bootstrap.min.js"></script>  -->
   

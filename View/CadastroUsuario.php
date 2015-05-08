@@ -14,16 +14,23 @@
 
     <!-- Including Open Sans Condensed from Google Fonts -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" />
-    
+   
+    <!-- MEU CSS -->
+         <link rel="stylesheet" href="../View/assets/css/estilo.css" />
+         
   </head>
   <body  style="padding-top: 10px">
      <!--Logo-->
     	<center>
     	<div id="logo" >
-    		 <img id="logo" src="..\view\assets\img\teste2.png" style=" width: 450px; Margin-top:0px; ">
+    		 <img id="logo" src="..\view\assets\img\teste2.png"  style=" width: 450px; height:200px; position:relative; Margin-top:0px; ">
     	</div>
-        </center>  
+        </center> 
+         
      <!--Form-->
+     
+     <!-- FORM DE CADASTRO ANTIGO
+     
      	<section class="loginform cf">
 	     	<div class="col-md-4" >
 			<form id="Cadastro" class="form-horizontal" role="form" name="cadastro" method="post" action="..\Controller\cadastro-controller.php">
@@ -101,5 +108,50 @@
 			</form>
 		    </div>
 		</section>
+       FIM FORM DE CADASTRO ANTIGO -->
+       
+       <div id="box">
+		<div id="formularios">
+    
+            <!-- formulario de cadastro!-->
+            <form name="cadastro" method="post" action="..\Controller\cadastro-controller.php" > 
+                <fieldset>
+                
+                    <legend align="center">Cadastro de Usuários</legend>
+                    
+                    <label>
+                        <span>Nome:</span>
+                        <input type="text" name="nome" id="inputName" />
+                    </label>
+                    
+                    <label>
+                        <span>E-mail:</span>
+                        <input type="text" name="email" id="inputEmail" />
+                    </label>
+                    
+                    <label>
+                        <span>Data Nascimento:</span>
+                        <input type="date" name="nascimento" id="inputDataNasc" />
+                    </label>
+                    
+                    <label>
+                        <span>RA:</span>
+                        <input type="text" name="usuariocol" id="inputUsuarioCol" />
+                    </label>
+                    
+                    <label>
+                        <span>Senha:</span>
+                        <input type="password" name="senha" id="inputPassword" />
+                    </label>
+                    
+                    <input type="submit" name="enviar" valor="enviar" value="Cadastrar" class="botao" />
+                    
+                    
+                </fieldset>
+            </form>
+        
+        </div><!--cadastro-->
+    </div><!-- box-->
+        
   </body>
 </html>
