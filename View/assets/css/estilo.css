@@ -1,5 +1,5 @@
 *
-
+/*joenio leal*/
 
 html,body{
 	margin:0;
@@ -95,7 +95,7 @@ div {
 	}
 /* formulario*/
 #formularios form{width:300px; display:block; margin:0 auto; background: #A8DBA8; border:none; }
-#formularios fieldset{border:0 ; padding:0 15px 10px 15px; }
+#formularios fieldset{border:0 ; padding:0 15px 0 15px; }
 #formularios legend{font:24px Tahoma, Geneva, sans-serif; color: #0B486B; font-weidth:bold; padding:10px 0;}
 #formularios label{display:block; padding:3px 0;}
 #formularios span{display:block; font:16px "Trebuchet MS", Arial, Helvetica, sans-serif; color:#0B486B; font-weight:bold;}
@@ -103,7 +103,7 @@ div {
 #formularios input:hover{border:1px solid  #0CF;}
 #formularios .botao{width:120px; display:block; margin:10px auto; cursor:pointer; background:#0B486B; color:#FFF; border-radius: 4px;}
 #formularios .botao:hover {background: #3B8686;}
-
+#formularios select{ padding:3px ;width:267px; border:1px solid #79BD9A; font:14px Tahoma, Geneva, sans-serif; color: #0B486B; font-weight:bold;}
 <!--MENU COM ABAS-->
 /*GERAL*/
 

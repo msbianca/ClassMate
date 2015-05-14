@@ -36,7 +36,6 @@
 	$alunodao = new AlunoDao();
 
 	$alunodao->inserirAluno($usuario);
-	
 ?>
 		
 		

@@ -37,7 +37,28 @@
                                 <span>Data Nascimento:</span>
                                 <input type="date" name="nascimento" id="inputDataNasc" />
                             </label>
-
+                            <label>
+                                <span>Cidade:</span>
+                                    <select name="cidade" id="cidade">
+                                        <option value="Opcoes">Opções</option>
+                                        <option value="Caieras">Caieras</option>
+                                        <option value="Cajamar">Cajamar</option>
+                                        <option value="Campinas">Campinas</option>
+                                        <option value="Franco da Rocha">Franco da Rocha</option>
+                                        <option value="Francisco Morato">Francisco Morato</option>
+                                        <option value="Indaiatuba">Indaiatuba</option>
+                                        <option value="Itu">Itu</option>
+                                        <option value="Itupeva">Itupeva</option>
+                                        <option value="Jundiaí">Jundiaí</option>
+                                        <option value="Jarinu">Jarinu</option>
+                                        <option value="Campinas">Campinas</option>
+                                        <option value="Louveira">Louveira</option>
+                                        <option value="São Paulo">São Paulo</option>
+                                        <option value="Valinhos">Valinhos</option>
+                                        <option value="Várzea Paulista">Várzea Paulista</option>
+                                        <option value="Vinhedo">Vinhedo</option>
+                                    </select>
+                            </label>                           
                             <label>
                                 <span>RA:</span>
                                 <input type="text" name="usuariocol" id="inputUsuarioCol" />
