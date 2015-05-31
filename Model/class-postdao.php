@@ -9,6 +9,7 @@ class PostDao {
                 . "caminhoArquivo = $caminho, "
                 . "nomeArquivo = $nomeArquivo";
         mysql_query($sql);
+        return mysql_insert_id();
     }
     
     public function alterarPost($idPost,$descricao, $caminho='', $nomeArquivo=''){

@@ -51,5 +51,8 @@ function efetuarUpload($uploaddir, $nome) {
 $idArquivo = $arquivoDao->inserirArquivo($_SESSION['idPasta'], $participa, $_POST['nome'], $_POST['descricao'], $caminho);
 
 $oPost = new PostDao();
-$oPost->inserirPost($login, $_POST['post'], $caminho, $_POST['nome']);
+$idPost = $oPost->inserirPost($_POST['post'], $caminho, $_POST['nome']);
+
+$idGrupo = !empty($_GET['idGrupo']) ? $_GET['idGrupo'] : 0;
+$participacao->inserirParticipacao(0, 0,$idPost, $idGrupo, $login, $idArquivo)
 
