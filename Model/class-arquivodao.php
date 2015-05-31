@@ -4,7 +4,8 @@
 	public function inserirArquivo($idPasta, $idParticipacao,$nome, $descricao, $caminho = ""){
 		$query = "INSERT INTO tbArquivo (idPasta, idParticipacao, nome, descricao, caminhoArquivo)  VALUES ( '".$idPasta."', '".$idParticipacao."', '".$nome."', '".$descricao."', '".$caminho."')";
 		
-				mysql_query($query) or die($query.mysql_error());
+				mysql_query($query);
+                                return mysql_insert_id();
 		
 	}
 

@@ -2,22 +2,28 @@
 
 class PostDao {
     
-    public function inserirPost(){
+    public function inserirPost($login, $descricao, $caminho='', $nomeArquivo=''){
         $sql = "INSERT INTO tbPost "
-                . "SET ";
+                . "SET idUsuario = $login, "
+                . "descricao = $descricao, "
+                . "caminhoArquivo = $caminho, "
+                . "nomeArquivo = $nomeArquivo";
         mysql_query($sql);
+        return mysql_insert_id();
     }
     
-    public function alterarPost(){
+    public function alterarPost($idPost,$descricao, $caminho='', $nomeArquivo=''){
         $sql = "UPDATE tbPost "
-                . "SET "
-                . "WHERE codpost = $codpost";
+                . "SET descricao = $descricao, "
+                . "caminhoArquivo = $caminho, "
+                . "nomeArquivo = $nomeArquivo "
+                . "WHERE codpost = $idPost";
         mysql_query($sql);
     }
     
-    public function removerPost(){
+    public function removerPost($idPost){
         $sql = "DELETE FROM tbPost "
-                . "WHERE codpost = $codpost";
+                . "WHERE codpost = $idPost";
         mysql_query($sql);
     }
     
