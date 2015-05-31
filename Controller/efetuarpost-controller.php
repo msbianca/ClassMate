@@ -54,5 +54,5 @@ $oPost = new PostDao();
 $idPost = $oPost->inserirPost($_POST['post'], $caminho, $_POST['nome']);
 
 $idGrupo = !empty($_GET['idGrupo']) ? $_GET['idGrupo'] : 0;
-$participacao->inserirParticipacao(0, 0,$idPost, $idGrupo, $login, $idArquivo)
+$participacao->inserirParticipacao(0, 0,$idPost, $idGrupo, $login, $idArquivo);
 
