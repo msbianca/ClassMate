@@ -1,11 +1,11 @@
 <?php
    class classUsuario{
 
-   		public function loginViraId($id)
+   		public function loginViraId($login)
    		{
-   			 require_once '../Controller/idorlogin-controller.php';
-			 $idorlogin = new IdOrLogin();
-			 $idorlogin->loginViraId($id);
+   			require_once '../model/class-UsuarioDao.php';
+			$UsuarioDao = new UsuarioDao();
+			$_SESSION['login'] = $UsuarioDao->loginViraId($login);
    		}
    }
 ?>

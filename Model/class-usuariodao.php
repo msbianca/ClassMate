@@ -4,23 +4,14 @@ require '..\model\class-cadastro.php';
 
 class UsuarioDao {
 
-    public function loginViraId($id) {
-        $query = "SELECT L.idUsuario FROM tbUsuario as U, tbLogin as L WHERE U.idUsuario = L.idUsuario AND L.usuarioco = '$id' OR L.email = '$id'";
+    public function loginViraId($login) {
+        $query = "SELECT L.idUsuario FROM tbUsuario as U, tbLogin as L WHERE U.idUsuario = L.idUsuario AND L.usuarioco = '$login' OR L.email = '$login'";
         $result = mysql_query($query);
         if(mysql_num_rows($result) > 0)
             return mysql_result($result, 0);
         else
             return 0;
     }
-    public function idViralogin($id) {
-        $query = "SELECT usuarioCo FROM tblogin WHERE idUsuario = $id";
-        $result = mysql_query($query);
-        if(mysql_num_rows($result) > 0)
-            return mysql_result($result, 0);
-        else
-            return 0;
-    }
-
 
     public function habilitarUsuario($idUsuario) {
         $query = "UPDATE tbLogin SET ativo = 1 WHERE idUsuario	= '" . $idUsuario . "'";
@@ -246,7 +237,7 @@ class UsuarioDao {
 
      public function usuarioTipo($idUsuario){
        $query = "SELECT TC.tipoCargo FROM tbUsuario AS U, tbtipocargo AS TC WHERE TC.idTipoCargo = U.idTipoCargo AND U.idUsuario = ". $idUsuario;
-       $result = mysql_query($query) or die(mysql_error());
+       $result = mysql_query($query);
        return mysql_result($result, 0);
      }
 

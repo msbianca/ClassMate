@@ -14,11 +14,12 @@
 	require_once '../Controller/grupos-controller.php';
 	$classGrupo = new classGrupo();
 	$qtdGrupo = $classGrupo->selectQtdGrupo($idUsuario);
-
+    echo $qtdGrupo;
 	if($qtdGrupo = 5)
 	{
 		$qtdRestante = 0;
 		$habilitar = false;
+		echo 1;
 	}
 
 	else if($qtdGrupo = 0)
@@ -26,17 +27,19 @@
 
 		$qtdRestante = 5;
 		$habilitar = true;
+		echo 2;
 	}
 	else if($qtdGrupo < 5)
 	{
 		$qtdRestante = 5 - $qtdGrupo;
 		$habilitar = true;
+		echo 3;
 	}
 	else{
-		
-	}
-	echo $idGrupo;
+		echo $idGrupo;
 	echo $idRestante;
+	}
+	
 	if ($qtdRestante != 0 ) {
 		$Grupos = $grupoClass->selecionarGrupoEstudo($idUsuario);
 		$idGrupo = null;

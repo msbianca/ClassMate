@@ -12,9 +12,6 @@
             header("Content-Type: text/html; charset=UTF-8",true);
             if(!isset($_SESSION)){
                 session_start();
-                require_once '../Controller/usuarios-controller.php';
-                $classusuario = new classUsuario();
-                $classusuario->loginViraId($_SESSION['login']);
             }
             require_once '../controller/master-controller.php';
             $masterControl = new MasterController();
