@@ -21,10 +21,10 @@
                     require_once '../model/class-usuariodao.php';
                     $controller = new PerfilController();
                     $usuariodao = new UsuarioDao();
-                    echo 'EM CONSTRUÇÃO';
-                    $idUsuario = (isset($_GET['idUsuario'])) ? $_GET['idUsuario'] : $_SESSION['login'];
-                    $Tipo = $usuariodao->usuarioTipo($idUsuario);
-                    $controller->montarPerfil($idUsuario,$Tipo);
+//                    $Tipo = $usuariodao->usuarioTipo($_SESSION['idUsuario']);
+                    //$teste = $_SESSION['idUsuario'];
+                    //    echo $teste;
+                    $controller->montarPerfil('8','Aluno');
                     ?>
 
                 </div>

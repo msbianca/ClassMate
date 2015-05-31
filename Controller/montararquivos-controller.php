@@ -1,6 +1,7 @@
 <?php 
 
-	session_start();
+ 	if(!isset($_SESSION)){
+                session_start();
 	$login = $_SESSION['login'];
 	
 	require_once '..\model\class-arquivodao.php';
