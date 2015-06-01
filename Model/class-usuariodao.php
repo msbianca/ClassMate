@@ -99,26 +99,26 @@ class UsuarioDao {
         $disciplinas = Array();
         $i = 0;
         while ($consulta = mysql_fetch_array($result)) {
-            $disciplinas[$i] = $consulta[0];
+            array_push($disciplinas, $consulta);
             $i++;
         }
         return $disciplinas;
     }
 
     public function listarGrupos($idUsuario) {
-        $query = "SELECT d.nome FROM tbGrupos AS d INNER JOIN tbgrupomembro AS g ON d.idGrupo = g.idGrupo WHERE g.idAluno =" . $idAluno;
+        $query = "SELECT d.idGrupo,d.nome FROM tbGrupos AS d INNER JOIN tbgrupomembro AS g ON d.idGrupo = g.idGrupo WHERE g.idAluno =" . $idUsuario;
         $result = mysql_query($query) or die(mysql_error());
         $grupos = Array();
         $i = 0;
         while ($consulta = mysql_fetch_array($result)) {
-            $grupos[$i] = $consulta[0];
+            array_push($grupos, $consulta);
             $i++;
         }
         return $grupos;
     }
 
     public function listarSalas($idUsuario) {
-        $query = "SELECT d.nome FROM tbSala AS s INNER JOIN tbAlunoSala AS a ON s.idSala = a.idSala WHERE g.idAluno =" . $idAluno;
+        $query = "SELECT d.nome FROM tbSala AS s INNER JOIN tbAlunoSala AS a ON s.idSala = a.idSala WHERE g.idAluno =" . $idUsuario;
         $result = mysql_query($query) or die(mysql_error());
         $grupos = Array();
         $i = 0;
