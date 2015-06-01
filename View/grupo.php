@@ -49,7 +49,8 @@
                                 . "FROM tbUsuarios AS u "
                                 . "INNER JOIN tbParticipacao AS p "
                                 . "ON u.idUsuario = p.idUsuario "
-                                . "WHERE u.idTipoCargo = 3";
+                                . "WHERE u.idTipoCargo = 3 "
+                                . "AND p.idGrupo =" . $_GET['idGrupo'];
                         $stmt = mysql_query($sql);
                     ?>
                     <h4>Professor Responsável: <?= mysql_result($stmt, 0) ?></h4>
@@ -59,7 +60,8 @@
                         $sql = "SELECT descricao, nomeArquivo, caminhoArquivo "
                                 . "FROM tbPost AS p "
                                 . "INNER JOIN tbParticipacao AS pt "
-                                . "ON p.idPost = pt.idPost ";
+                                . "ON p.idPost = pt.idPost "
+                                . "AND p.idGrupo =" . $_GET['idGrupo'];
                         $stmt = mysql_query($sql);
                     ?>
                     <table>
@@ -76,7 +78,8 @@
                         $sql = "SELECT descricao, nomeArquivo, caminhoArquivo "
                                 . "FROM tbMensagens AS m "
                                 . "INNER JOIN tbParticipacao AS pt "
-                                . "ON m.idMensagem = pt.idMensagem ";
+                                . "ON m.idMensagem = pt.idMensagem "
+                                . "AND p.idGrupo =" . $_GET['idGrupo'];
                         $stmt = mysql_query($sql);
                     ?>
                     <table>
