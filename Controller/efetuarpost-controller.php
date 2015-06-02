@@ -2,7 +2,7 @@
 
 session_start();
 require '..\Model\class-arquivodao.php';
-require '..\model\class-dao.php';
+require_once '..\model\class-dao.php';
 require '..\model\class-participacaodao.php';
 require_once '..\model\class-usuariodao.php';
 require_once '..\model\class-postdao.php';

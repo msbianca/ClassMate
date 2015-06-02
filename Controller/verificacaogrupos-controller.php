@@ -14,12 +14,13 @@
 	require_once '../Controller/grupos-controller.php';
 	$classGrupo = new classGrupo();
 	$qtdGrupo = $classGrupo->selectQtdGrupo($idUsuario);
-    echo $qtdGrupo;
+    
 	if($qtdGrupo = 5)
 	{
 		$qtdRestante = 0;
 		$habilitar = false;
 		echo 1;
+		echo $qtdGrupo;
 	}
 
 	else if($qtdGrupo = 0)

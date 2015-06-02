@@ -1,4 +1,9 @@
+<!-- Carrega o jQuery, necessário para exibir o popup -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+
 <textarea name="post" form="nomeDoForm"></textarea>
+
+
 <form enctype="multipart/form-data" action="..\controller\efetuarpost-controller.php" method=POST id="nomeDoForm">
                     <table>
                         <tr>

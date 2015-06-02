@@ -1,7 +1,9 @@
 
 <?php 
 
-	session_start();
+	if(!isset($_SESSION)){
+        session_start();
+    }
 	$login = $_SESSION['login'];
 	
 	require_once '..\model\class-arquivodao.php';
@@ -15,8 +17,7 @@
 
 	$usuariodao = new UsuarioDao();
 	$login = $usuariodao->loginViraId($login);
-
-	$Pastas = new PastaDao();
+print_r($Pastas = new PastaDao());
 	$TodasPastas = $Pastas->listarRaiz($_SESSION['login']);
 	echo '<center><table><tr><th>Nome</th><th>Descrição</th><th></th><th></th></tr>';
 	if(is_array($TodasPastas)){
@@ -42,7 +43,7 @@
 
 
 ?>
-<?php
+<?/*php
 
 if (!isset($_SESSION)) {
     session_start();
@@ -80,3 +81,5 @@ if (!isset($_SESSION)) {
         echo '</table>';
     }
 }
+*/
+?>

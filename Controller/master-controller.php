@@ -16,8 +16,8 @@
 		}
 		
 		public function listarDisciplinas($login){
-			foreach($this->usuariodao->consultarDisciplinas($login) as $disciplina){
-				echo "<a href='grupo.php?idGrupo=$disciplina->idGrupo>$disciplina->nome</a>";
+			foreach($this->usuariodao->listarDisciplinas($login) as $disciplina){
+				echo "<a href='grupo.php?idGrupo=$disciplina->idDisciplina'>$disciplina->nome</a><br />";
 			}
 		}
 

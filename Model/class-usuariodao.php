@@ -30,10 +30,11 @@ class UsuarioDao {
         $senhaCriptografada = $cadastro->criptografarSenha($senha);
 
         while ($consulta = mysql_fetch_array($result)) {
-
+            print_r($consulta);
             if ((($consulta[0] == $login) or ( $consulta[1] == $login)) and ( $consulta[2] == $senhaCriptografada)) {
                 if ($consulta[3] == 1) {
-                    $this->iniciarSession($consulta[0]);
+                    session_start();
+                    $_SESSION['login'] = $consulta[0];
                     header('location: ..\view\principal.php');
                 } else {
                     header('location: ..\view\desabilitado.html');
@@ -47,6 +48,7 @@ class UsuarioDao {
 
     public function iniciarSession($login) {
         session_start();
+        print_r($login);
         $_SESSION['login'] = $login;
     }
 
@@ -94,7 +96,7 @@ class UsuarioDao {
     }
 
     public function listarDisciplinas($idUsuario) {
-        $query = "SELECT d.nome FROM tbDisciplinas AS d INNER JOIN tbAlunoCursando AS a ON d.idDisciplina = a.idDisciplina WHERE a.idAluno =" . $idUsuario;
+        $query = "SELECT L.UsuarioCo, G.idGrupo,D.idDisciplina, U.IdUsuario, D.nome, D.apelido  FROM tbparticipante as P  INNER JOIN tbgrupo as G ON (P.idGrupo = G.idGrupo) INNER JOIN tbusuario as U on (P.idUsuario = U.idUsuario) INNER JOIN tbdisciplinaGrupo as DG ON (G.idGrupo = DG.idGrupo)  INNER JOIN tbdisciplina as D ON (DG.idDisciplina = D.iddisciplina) INNER JOIN tbLogin as L ON (U.idUsuario = L.idUsuario) WHERE L.usuarioCo ='" . $idUsuario . "'";
         $result = mysql_query($query) or die(mysql_error());
         $disciplinas = Array();
         while ($consulta = mysql_fetch_object($result)) {
@@ -104,7 +106,7 @@ class UsuarioDao {
     }
 
     public function listarGrupos($idUsuario) {
-        $query = "SELECT d.idGrupo,d.nome FROM tbGrupos AS d INNER JOIN tbgrupomembro AS g ON d.idGrupo = g.idGrupo WHERE g.idAluno =" . $idUsuario;
+        $query = "SELECT d.idGrupo,d.nome FROM tbGrupo AS d INNER JOIN tbgrupomembro AS g ON d.idGrupo = g.idGrupo WHERE g.idAluno =" . $idUsuario;
         $result = mysql_query($query);
         $grupos = Array();
         while ($consulta = mysql_fetch_object($result)) {
@@ -238,5 +240,4 @@ class UsuarioDao {
      }
 
 }
-
 ?>

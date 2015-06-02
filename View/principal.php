@@ -23,8 +23,11 @@
                 <div class="tab-main">
                     <?= $controller->showNotificacao() ?>
                 </div>
-                
+             
              <?= $controller->showMensagens() ?>
+             <div>
+                <?= include("inc/enviarPost.php"); ?>
+             </div>
             </div>
 
         </div>
