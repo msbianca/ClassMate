@@ -10,8 +10,8 @@
 		private $usuariodao;
 
 		public function listarGrupos($login){
-			foreach($this->usuariodao->consultarGrupos($login) as $grupo){
-				echo "<a href='grupo.php?idGrupo=$grupo->idGrupo'>$grupo->nome</a>";
+			foreach($this->usuariodao->listarGrupos($login) as $grupo){
+				echo "<a href='grupo.php?idGrupo=$grupo->idGrupo'>$grupo->nome</a><br />";
 			}
 		}
 		

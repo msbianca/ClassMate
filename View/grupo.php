@@ -17,10 +17,10 @@
             <center>
                 <div id="divConteudo">
                     <?php
-                    require '..\model\class-dao.php';
+                    if(!class_exists('Dao'))  require '..\model\class-dao.php';
                     $dao = new Dao();
                     $dao->abrirBD();
-                    $sql = "SELECT a.nome, a.descricao, a.caminho "
+                    $sql = "SELECT a.nome, a.descricao, a.caminhoArquivo "
                             . "FROM tbArquivo AS a "
                             . "INNER JOIN tbParticipacao AS p "
                             . "ON a.idArquivo = p.idArquivo "
@@ -46,14 +46,15 @@
                     <br />
                     <?php 
                         $sql = "SELECT u.nome "
-                                . "FROM tbUsuarios AS u "
+                                . "FROM tbUsuario AS u "
                                 . "INNER JOIN tbParticipacao AS p "
                                 . "ON u.idUsuario = p.idUsuario "
                                 . "WHERE u.idTipoCargo = 3 "
                                 . "AND p.idGrupo =" . $_GET['idGrupo'];
                         $stmt = mysql_query($sql);
+                        $sNomePRofessor = mysql_num_rows($stmt) > 0 ? mysql_result($stmt, 0) : "";
                     ?>
-                    <h4>Professor Responsável: <?= mysql_result($stmt, 0) ?></h4>
+                    <h4>Professor Responsável: <?= $sNomePRofessor ?></h4>
                     <br />
                     <br />
                     <?php
@@ -61,8 +62,8 @@
                                 . "FROM tbPost AS p "
                                 . "INNER JOIN tbParticipacao AS pt "
                                 . "ON p.idPost = pt.idPost "
-                                . "AND p.idGrupo =" . $_GET['idGrupo'];
-                        $stmt = mysql_query($sql);
+                                . "AND pt.idGrupo =" . $_GET['idGrupo'];
+                        $stmt = mysql_query($sql) or die($sql. mysql_error());
                     ?>
                     <table>
                         <tr>
@@ -75,12 +76,12 @@
                         ?>
                     </table>
                                         <?php
-                        $sql = "SELECT descricao, nomeArquivo, caminhoArquivo "
-                                . "FROM tbMensagens AS m "
+                        $sql = "SELECT descricao, nomeArquivo, caminhodoArquivo "
+                                . "FROM tbMensagem AS m "
                                 . "INNER JOIN tbParticipacao AS pt "
-                                . "ON m.idMensagem = pt.idMensagem "
-                                . "AND p.idGrupo =" . $_GET['idGrupo'];
-                        $stmt = mysql_query($sql);
+                                . "ON m.idMensagem = pt.idMenssagem "
+                                . "AND pt.idGrupo =" . $_GET['idGrupo'];
+                        $stmt = mysql_query($sql) or die($sql.mysql_error());
                     ?>
                     <table>
                         <tr>
@@ -88,7 +89,7 @@
                         </tr>
                         <?php
                             while($rs = mysql_fetch_object($stmt)){
-                                echo "<tr><td>$rs->descricao</td><td><a href='$rs->caminhoArquivo'>$rs->nomeArquivo</a></td></tr>";
+                                echo "<tr><td>$rs->descricao</td><td><a href='$rs->caminhodoArquivo'>$rs->nomeArquivo</a></td></tr>";
                             }
                         ?>
                     </table>                   

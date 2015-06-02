@@ -1,6 +1,5 @@
 <?php
 
-require '..\model\class-dao.php';
 require_once '..\model\class-postdao.php';
 
 $dao = new Dao();
