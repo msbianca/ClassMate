@@ -94,7 +94,7 @@ class UsuarioDao {
     }
 
     public function listarDisciplinas($idUsuario) {
-        $query = "SELECT d.nome FROM tbDisciplinas AS d INNER JOIN tbAlunoCursando AS a ON d.idDisciplina = a.idDisciplina WHERE a.idAluno =" . $idUSuario;
+        $query = "SELECT d.nome FROM tbDisciplinas AS d INNER JOIN tbAlunoCursando AS a ON d.idDisciplina = a.idDisciplina WHERE a.idAluno =" . $idUsuario;
         $result = mysql_query($query) or die(mysql_error());
         $disciplinas = Array();
         while ($consulta = mysql_fetch_object($result)) {
