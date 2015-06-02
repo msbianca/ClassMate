@@ -11,13 +11,13 @@
 
 		public function listarGrupos($login){
 			foreach($this->usuariodao->consultarGrupos($login) as $grupo){
-				echo "<a href='grupo.php?idGrupo=" . $grupo['idGrupo'] . "'>" . $grupo['nome'] . "</a>";
+				echo "<a href='grupo.php?idGrupo=$grupo->idGrupo'>$grupo->nome</a>";
 			}
 		}
 		
 		public function listarDisciplinas($login){
 			foreach($this->usuariodao->consultarDisciplinas($login) as $disciplina){
-				echo "<a href='grupo.php?idGrupo=" . $disciplina['idGrupo'] . "'>" . $disciplina['nome'] . "</a>";
+				echo "<a href='grupo.php?idGrupo=$disciplina->idGrupo>$disciplina->nome</a>";
 			}
 		}
 

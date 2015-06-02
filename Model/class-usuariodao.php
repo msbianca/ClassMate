@@ -94,25 +94,21 @@ class UsuarioDao {
     }
 
     public function listarDisciplinas($idUsuario) {
-        $query = "SELECT d.nome FROM tbDisciplinas AS d INNER JOIN tbAlunoCursando AS a ON d.idDisciplina = a.idDisciplina WHERE a.idAluno =" . $idAluno;
+        $query = "SELECT d.nome FROM tbDisciplinas AS d INNER JOIN tbAlunoCursando AS a ON d.idDisciplina = a.idDisciplina WHERE a.idAluno =" . $idUSuario;
         $result = mysql_query($query) or die(mysql_error());
         $disciplinas = Array();
-        $i = 0;
-        while ($consulta = mysql_fetch_array($result)) {
+        while ($consulta = mysql_fetch_object($result)) {
             array_push($disciplinas, $consulta);
-            $i++;
         }
         return $disciplinas;
     }
 
     public function listarGrupos($idUsuario) {
         $query = "SELECT d.idGrupo,d.nome FROM tbGrupos AS d INNER JOIN tbgrupomembro AS g ON d.idGrupo = g.idGrupo WHERE g.idAluno =" . $idUsuario;
-        $result = mysql_query($query) or die(mysql_error());
+        $result = mysql_query($query);
         $grupos = Array();
-        $i = 0;
-        while ($consulta = mysql_fetch_array($result)) {
+        while ($consulta = mysql_fetch_object($result)) {
             array_push($grupos, $consulta);
-            $i++;
         }
         return $grupos;
     }
