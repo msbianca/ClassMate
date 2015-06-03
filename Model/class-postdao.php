@@ -2,14 +2,11 @@
 
 class PostDao {
     
-    public function inserirPost($login, $descricao, $caminho='', $nomeArquivo=''){
-        $sql = "INSERT INTO tbPost "
-                . "SET idUsuario = $login, "
-                . "descricao = $descricao, "
-                . "caminhoArquivo = $caminho, "
-                . "nomeArquivo = $nomeArquivo";
+    public function inserirPost($descricao){
+        $sql = "INSERT INTO tbPost SET descricao = '$descricao'";
         mysql_query($sql);
-        return mysql_insert_id();
+        $sql = "SELECT MAX(idPost) FROM tbPost";
+        return mysql_result(mysql_query($sql), 0);
     }
     
     public function alterarPost($idPost,$descricao, $caminho='', $nomeArquivo=''){

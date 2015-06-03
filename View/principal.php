@@ -21,12 +21,52 @@
 
             <div id="divConteudo">
                 <div class="tab-main">
+                    
+             <div>
+                <a href="inc/enviarPost.php" target="_blank">Enviar Post </a>
+                <?php
+                    if(!class_exists('Dao'))  require '..\model\class-dao.php';
+                    $dao = new Dao();
+                    $dao->abrirBD();
+                    ?>
+
+                    <?php
+                        $sql = "SELECT descricao, nomeArquivo, caminhoArquivo "
+                                . "FROM tbPost AS p "
+                                . "INNER JOIN tbParticipacao AS pt "
+                                . "ON p.idPost = pt.idPost ";
+                        $stmt = mysql_query($sql) or die($sql. mysql_error());
+                    ?>
+                    <table>
+                        <tr>
+                            <th>Postagens</th>
+                        </tr>
+                        <?php
+                            while($rs = mysql_fetch_object($stmt)){
+                               echo "<tr><td>$rs->descricao</td><td><a href='$rs->caminhoArquivo'>$rs->nomeArquivo</a></td></tr>";
+                            }
+                        ?>
+                    </table>
+                                        <?php
+                        $sql = "SELECT descricao, nomeArquivo, caminhodoArquivo "
+                                . "FROM tbMensagem AS m "
+                                . "INNER JOIN tbParticipacao AS pt "
+                                . "ON m.idMensagem = pt.idMenssagem ";
+                        $stmt = mysql_query($sql) or die($sql.mysql_error());
+                    ?>
+                    <table>
+                        <tr>
+                            <th>Mensagens</th>
+                        </tr>
+                        <?php
+                            while($rs = mysql_fetch_object($stmt)){
+                                echo "<tr><td>$rs->descricao</td><td><a href='$rs->caminhodoArquivo'>$rs->nomeArquivo</a></td></tr>";
+                            }
+                        ?>
                     <?= $controller->showNotificacao() ?>
                 </div>
              
              <?= $controller->showMensagens() ?>
-             <div>
-                <?= include("inc/enviarPost.php"); ?>
              </div>
             </div>
 

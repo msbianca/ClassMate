@@ -2,9 +2,14 @@
 		class ParticipacaoDao
 		{
 		public function inserirParticipacao($idMenssagem, $idNotificacao,$idPost, $idgrupo, $idUsuario, $idArquivo){
-			$query = "INSERT INTO tbparticipacao(idMenssagem, idNotificacao, idPost, idgrupo, idUsuario, idArquivo) VALUES ('.$idMenssagem.', '.$idNotificacao.','.$idPost.', '.$idgrupo.','.$idUsuario.', .'$idArquivo.')";
+			$query = "INSERT INTO tbparticipacao(idMenssagem, idNotificacao, idPost, idgrupo, idUsuario, idArquivo) VALUES ('$idMenssagem', '$idNotificacao', '$idPost', '$idgrupo','$idUsuario', '$idArquivo')";
 		     mysql_query($query) or die($query.mysql_error());
 			
+		}
+
+		public function inserirParticipacaoPost($idPost,$idGrupo, $idUsuario,$idArquivo){
+			$query = "INSERT INTO tbparticipacao SET idPost = $idPost, idGrupo = $idGrupo, idUsuario = $idUsuario";
+			mysql_query($query) or die($query.mysql_error());
 		}
 
 		public function buscarUltimaParticipacao($idUsuario){
